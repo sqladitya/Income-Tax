@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        Income Tax Department of India
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="refresh" content="120; url='Loading.html'" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .topnav {
+            overflow: hidden;
+            background-color: #333;
+        }
+        
+        .topnav a {
+            float: right;
+            color: #f2f2f2;
+            text-align: right;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 17px;
+        }
+        
+        .topnav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+        
+        .topnav a.active {
+            background-color: #04AA6D;
+            color: white;
+        }
+        
+        table,
+        tr,
+        th,
+        td {
+            border: 1px solid black;
+        }
+        
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        
+        tr {
+            height: 40px
+        }
+        
+        th {
+            height: 90px;
+        }
+        
+        td {
+            height: 200px;
+        }
+        
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        /* Full-width input fields */
+        
+        input[type=text],
+        input[type=password] {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+        /* Set a style for all buttons */
+        
+        button {
+            background-color: #04AA6D;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+        }
+        
+        button:hover {
+            opacity: 0.8;
+        }
+        /* Extra styles for the cancel button */
+        
+        .cancelbtn {
+            width: auto;
+            padding: 10px 18px;
+            background-color: #f44336;
+        }
+        /* Center the image and position the close button */
+        
+        .imgcontainer {
+            text-align: center;
+            margin: 24px 0 12px 0;
+            position: relative;
+        }
+        
+        img.avatar {
+            width: 15%;
+            border-radius: 20%;
+        }
+        
+        .container {
+            padding: 16px;
+        }
+        
+        span.psw {
+            float: right;
+            padding-top: 16px;
+        }
+        /* The Modal (background) */
+        
+        .modal {
+            display: none;
+            /* Hidden by default */
+            position: fixed;
+            /* Stay in place */
+            z-index: 1;
+            /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%;
+            /* Full width */
+            height: 100%;
+            /* Full height */
+            overflow: auto;
+            /* Enable scroll if needed */
+            background-color: rgb(0, 0, 0);
+            /* Fallback color */
+            background-color: rgba(0, 0, 0, 0.4);
+            /* Black w/ opacity */
+            padding-top: 60px;
+        }
+        /* Modal Content/Box */
+        
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto 15% auto;
+            /* 5% from the top, 15% from the bottom and centered */
+            border: 1px solid #888;
+            width: 80%;
+            /* Could be more or less, depending on screen size */
+        }
+        /* The Close Button (x) */
+        
+        .close {
+            position: absolute;
+            right: 25px;
+            top: 0;
+            color: #000;
+            font-size: 35px;
+            font-weight: bold;
+        }
+        
+        .close:hover,
+        .close:focus {
+            color: red;
+            cursor: pointer;
+        }
+        /* Add Zoom Animation */
+        
+        .animate {
+            -webkit-animation: animatezoom 0.6s;
+            animation: animatezoom 0.6s
+        }
+        
+        @-webkit-keyframes animatezoom {
+            from {
+                -webkit-transform: scale(0)
+            }
+            to {
+                -webkit-transform: scale(1)
+            }
+        }
+        
+        @keyframes animatezoom {
+            from {
+                transform: scale(0)
+            }
+            to {
+                transform: scale(1)
+            }
+        }
+        /* Change styles for span and cancel button on extra small screens */
+        
+        @media screen and (max-width: 300px) {
+            span.psw {
+                display: block;
+                float: none;
+            }
+            .cancelbtn {
+                width: 100%;
+            }
+        }
+        
+        .button {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 12px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+        
+        .dropbtn {
+            background-color: #3498DB;
+            color: white;
+            padding: 16px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .dropbtn:hover,
+        .dropbtn:focus {
+            background-color: #2980B9;
+        }
+        
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f1f1f1;
+            min-width: 160px;
+            overflow: auto;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+        
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+        
+        .dropdown a:hover {
+            background-color: #ddd;
+        }
+        
+        .show {
+            display: block;
+        }
+        
+        .hide {
+            display: none;
+        }
+        
+        .myDIV:hover+.hide {
+            display: block;
+            color: blue;
+        }
+        /* plus navigation bar */
+        
+        .r-button {
+            --uirButtonBackgroundColor: var(--rButtonBackgroundColor, transparent);
+            --uirButtonPadding: var(--rButtonPadding, var(--rButtonPaddingTop, 0) var(--rButtonPaddingRight, 0) var(--rButtonPaddingBottom, 0) var(--rButtonPaddingLeft, 0));
+            --uirButtonBorderWidth: var(--rButtonBorderWidth, 0);
+            --uirButtonBorderStyle: var(--rButtonBorderStyle, solid);
+            --uirButtonBorderColor: var(--rButtonBorderColor, currentColor);
+            --uirButtonFontFamily: var(--rButtonFontFamily, inherit);
+            --uirButtonFontSize: var(--rButtonFontSize, inherit);
+            --uirButtonColor: var(--rButtonColor);
+            background-color: var(--uirButtonBackgroundColor);
+            padding: var(--uirButtonPadding);
+            border-width: var(--uirButtonBorderWidth);
+            border-style: var(--uirButtonBorderStyle);
+            border-color: var(--uirButtonBorderColor);
+            cursor: pointer;
+            font-family: var(--uirButtonFontFamily);
+            font-size: var(--uirButtonFontSize);
+        }
+        
+        .r-button::-moz-focus-inner,
+        .r-button[type="button"]::-moz-focus-inner,
+        .r-button[type="reset"]::-moz-focus-inner,
+        .r-button[type="submit"]::-moz-focus-inner {
+            /* Remove the inner border and padding in Firefox. */
+            border-style: none;
+            padding: 0;
+        }
+        /* The component will reset browser's styles of link */
+        
+        .r-link {
+            --uirLinkDisplay: var(--rLinkDisplay, inline-flex);
+            --uirLinkTextColor: var(--rLinkTextColor);
+            --uirLinkTextDecoration: var(--rLinkTextDecoration, none);
+            display: var(--uirLinkDisplay) !important;
+            color: var(--uirLinkTextColor) !important;
+            text-decoration: var(--uirLinkTextDecoration) !important;
+        }
+        
+        .linktr {
+            order: -1;
+            padding: 1.75rem;
+            text-align: center;
+        }
+        
+        .linktr__goal {
+            background-color: rgb(209, 246, 255);
+            color: rgb(8, 49, 112);
+            box-shadow: rgb(8 49 112 / 24%) 0px 2px 8px 0px;
+            border-radius: 2rem;
+            padding: .5rem 1.25rem;
+        }
+        
+        @media (min-width: 1024px) {
+            .linktr {
+                position: absolute;
+                right: 1rem;
+                bottom: 1rem;
+            }
+        }
+        /* end plus navigation bar */
+        /* sidebar alert */
+        
+        .alert {
+            padding: 20px;
+            background-color: #f44336;
+            color: white;
+        }
+        
+        .closebtn {
+            margin-left: 15px;
+            color: white;
+            font-weight: bold;
+            float: right;
+            font-size: 22px;
+            line-height: 20px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        
+        .closebtn:hover {
+            color: black;
+        }
+        /* end sidebar alert */
+        
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        
+        tr:nth-child(even) {
+            background-color: burlywood;
+        }
+        /* wecome popup */
+        
+        .popup {
+            background-color: #ffffff;
+            width: 420px;
+            padding: 30px 40px;
+            position: absolute;
+            transform: translate(-50%, -50%);
+            left: 50%;
+            top: 50%;
+            border-radius: 8px;
+            font-family: "Poppins", sans-serif;
+            display: none;
+            text-align: center;
+        }
+        
+        .popup button {
+            display: block;
+            margin: 0 0 20px auto;
+            background-color: transparent;
+            font-size: 30px;
+            color: #ffffff;
+            background: #03549a;
+            border-radius: 100%;
+            width: 40px;
+            height: 40px;
+            border: none;
+            outline: none;
+            cursor: pointer;
+        }
+        
+        .popup h2 {
+            margin-top: -20px;
+        }
+        /* reistration css */
+        
+        @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+        * {
+            margin: 0;
+            padding: 0;
+            outline: none;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        body {
+            height: 100vh;
+            width: 100%;
+            background: linear-gradient(115deg, #56d8e4 10%, #9f01ea 90%);
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <tab>
+        <div class="popup">
+            <button id="close">&times;</button>
+            <p>
+                Welcome to Income Tax department of India Website
+            </p>
+        </div>
+        <!--Script-->
+        <script type="text/javascript">
+            window.addEventListener("load", function() {
+                setTimeout(
+                    function open(event) {
+                        document.querySelector(".popup").style.display = "block";
+                    },
+                    2000
+                )
+            });
+
+
+            document.querySelector("#close").addEventListener("click", function() {
+                document.querySelector(".popup").style.display = "none";
+            });
+        </script>
+
+
+        <div class="topnav">
+            <a href="contact.html" target="_blank">Contact us</a>
+            <a href="e-Accessibility.html">e-Accessibility</a>
+            <a href="feedback.html" target="_blank">Feedback</a>
+            <a href="about.html">About us</a>
+            <a href="index.html">Home</a>
+
+
+            <img src="photo/logo.jpg" alt="Logo" width="80" height="50" style="float:left">
+
+            <p>
+                <center>
+                    <font-size: 14px; style="color:red;">Income Tax Department Of India</center>
+            </p>
+
+
+
+        </div>
+
+
+
+        <table style="width:100%">
+            <tr>
+                <th colspan="3" style="background-color:rgb(174, 82, 228);" <p><span id='date-time'></span>.</p>
+                    <script>
+                        var dt = new Date();
+                        document.getElementById('date-time').innerHTML = dt;
+                    </script>
+                    <center>
+                        Important News
+                        <marquee>(1) The timeline to update UDIN has been extended up to 30th June, 2021. (2) CBDT issues notification for submission of SFT under IT Act, 1961. (3) All institutions, funds etc covered under clause 1&4 section 10(23C). (4) User
+                            can now download and fill the offline utility for ITR (2021-22).
+                        </marquee>
+                    </center>
+                </th>
+            </tr>
+            <tr>
+                <td><br>
+                    <button onclick="document.getElementById('id01').style.display='block'" style="width:300px;">Login</button>
+
+                    <div id="id01" class="modal">
+
+                        <form class="modal-content animate" action="login_redirect.html" method="post">
+                            <div class="imgcontainer">
+                                <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+                                <img src="photo/img_avatar2.png" alt="Login" class="avatar">
+                            </div>
+
+                            <div class="container">
+                                <label for="uname"><b>Username</b></label>
+                                <input type="text" placeholder="Enter Username" name="uname" required>
+
+                                <label for="psw"><b>Password</b></label>
+                                <input type="password" placeholder="Enter Password" name="psw" required>
+
+                                <label>
+              <input type="checkbox" checked="checked" name="remember"> Remember me<br>
+              <input type="reset" class="button" value="Reset" >
+            </label>
+                            </div>
+
+                            <div class="container" style="background-color:#f1f1f1">
+                                <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+                                <span class="psw">Forgot <a href="#">password?</a></span>
+                            </div>
+                        </form>
+                    </div>
+
+                    <script>
+                        // Get the modal
+                        var modal = document.getElementById('id01');
+
+                        window.onclick = function(event) {
+                                if (event.target == modal) {
+                                    modal.style.display = "none";
+                                }
+                            } <
+                            br >
+                    </script>
+
+                </td>
+                <td>
+                    <center><button onclick="document.getElementById('id02').style.display ='block'" style="width: 400px;;">News & Updates</button>
+                        <p>
+                            The timeline to update UDIN has been extended up to 30th June, 2021.<br>CBDT issues notification for submission of SFT under IT Act, 1961.
+
+                            <br>All institutions, funds etc covered under clause 1&4 section 10(23C).<br> User can now download and fill the offline utility for ITR (2021-22).<br> S
+                        </p>
+                        </div>
+                        <div id="id02" class="modal">
+
+                            <form class="modal-content animate" action="login_redirect.html" method="post">
+                                <div class="imgcontainer">
+                                    <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+                                    <img src="photo/img_avatar3.png" alt="Login" class="avatar">
+                                    <h2>News & Updates</h2>
+                                    <p>
+                                        <ul>
+                                            <li>The timeline to update UDIN has been extended up to 30th June, 2021.</li>
+                                            <li>CBDT issues notification for submission of SFT under IT Act, 1961.</li>
+
+                                            <li>All institutions, funds etc covered under clause 1&4 section 10(23C).</li>
+
+                                            <li>User can now download and fill the offline utility for ITR (2021-22).</li>
+                                        </ul>
+                                    </p>
+                                </div>
+                                <div class="container" style="background-color:#f1f1f1">
+                                    <button type="cancel" onclick="web:window.location='index.html';">Cancel</button>
+                                    <span class="psw">More <a href="itr%20news.html">News</a></span>
+
+                                </div>
+                            </form>
+                        </div>
+
+                        <script>
+                            // Get the modal
+                            var modal = document.getElementById('id01');
+
+                            window.onclick = function(event) {
+                                    if (event.target == modal) {
+                                        modal.style.display = "none";
+                                    }
+                                } <
+                                br >
+                        </script>
+
+                    </center>
+                </td>
+                <td>
+                    <table border="2" style="width:100%" bordercolor="blue">
+                        <tr>
+                            <td>
+                                <center>
+                                    <p style="font-size:20px;">Quick Links</p>
+                                </center><br>
+                                <li><a href="Instant_E-pan%20.html" target="_blank">Instant e-pan</a></li>
+                                <li><a href="Link_adhaar.html" target="_blank">Link Aadhaar </a></li>
+                                <li><a href="Submit_forms.html" target="_blank">Submit Forms</a></li>
+                                <li><a href="ITR_status%20.html" target="_blank">ITR Status</a></li>
+                                <P>
+                                    <br>
+                                    <center>
+                                        <form action="quick%20links.html">
+                                            <input type="submit" value="More Quicklinks">
+                                        </form>
+                                    </center>
+
+                                    </div>
+                                    </center>
+                                </P>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <center>FAQS</center>
+                                <ol start="1"></ol>
+                                <div class="dropdown">
+
+                                    <div class="myDIV">
+                                        <li>What is Income-tax?</li>
+                                    </div>
+                                    <div class="hide">​​It is a tax levied by the Government of India on the income of every person. The provisions governing the Income-tax are covered in the Income-tax Act, 1961.​</p>
+                                    </div>
+                                    <div class="dropdown">
+                                        <div class="myDIV">
+                                            <li>What is the administrative framework of Income-tax?</li>
+                                        </div>
+                                        <div class="hide">The revenue functions of the Government of India are managed by the Ministry of Finance. The Finance Ministry has entrusted the task of administration of direct taxes like Income-tax, Wealth tax, etc., to the Central
+                                            Board of Direct Taxes (CBDT). The CBDT is a part of Department of Revenue in the Ministry of Finance.<br> CBDT provides essential inputs for policy framing and planning of direct taxes and also administers the
+                                            direct tax laws through the Income-tax Department. Thus, Income-tax Law is administrated by the Income-tax Department under the control and supervision of the CBDT.​</div>
+
+                                    </div>
+                                    <div class="dropdown"></div>
+                                    <div class="myDIV">
+                                        <li>What is the period for which a person’s income is taken into account for the purpose of Income-tax?</li>
+                                    </div>
+                                    <div class="hide">​​Income-tax is levied on the annual income of a person. The year under the Income-tax Law is the period starting from 1st April and ending on 31st March of next calendar year. The Income-tax Law classifies the year
+                                        as (1) Previous year, and (2) Assessment year.<br> The year in which income is earned is called as previous year and the year in which the income is charged to tax is called as assessment year.<br> e.g., Income
+                                        earned during the period of 1st April, 2021 to 31st March, 2022 is treated as income of the previous year 2021-22. Income of the previous year 2021-22 will be charged to tax in the next year, i.e., in the assessment
+                                        year 2022-23.​
+                                    </div>
+                                    <div class="dropdown" </table>
+                            </td>
+                </td>
+                </tr>
+                </table>
+                </bo<table>
+
+        </table>
+
+
+        <div class="linktr">
+            <a href="Loading.html" target="_self" class="linktr__goal r-link">
+                <button1 onclick="myFunction()">Click to refresh this page 🔄🔄🔄🔄</button1>
+            </a>
+        </div>
+
+
+
+        <script>
+            function myFunction() {
+                alert("The Website automatically refresh after every 2 minutes. If you want to refresh it again then press Okay ");
+            }
+        </script>
+
+</body>
+
+</html>
