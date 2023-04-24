@@ -1,0 +1,95 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="feedback.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+        * {
+            margin: 0;
+            padding: 0;
+            outline: none;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        body {
+            height: 100vh;
+            width: 100%;
+            background: linear-gradient(115deg, #56d8e4 10%, #9f01ea 90%);
+        }
+        
+        .topnav {
+            overflow: hidden;
+            background-color: #333;
+        }
+        
+        .topnav a {
+            float: right;
+            color: #f2f2f2;
+            text-align: right;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 17px;
+        }
+        
+        .topnav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+        
+        .topnav a.active {
+            background-color: #04AA6D;
+            color: rgb(98, 44, 44);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="topnav">
+        <a href="contact.html" target="_blank">Contact us</a>
+        <a href="e-Accessibility.html">e-Accessibility</a>
+        <a href="feedback.html" target="_blank">Feedback</a>
+        <a href="about.html">About us</a>
+        <a href="index.html">Home</a>
+
+        <img src="photo/logo.jpg" alt="Logo" width="80" height="50" style="float:left">
+
+        <p>
+            <center>
+                <font-size: 14px; style="color:red;">Income Tax Department Of India</center>
+        </p>
+
+
+
+    </div>
+
+    <div id="feedback-main">
+        <div id="feedback-div">
+            <form action="contact.php" method="post" class="form" id="feedback-form1" name="form1" enctype="multipart/form-data">
+
+                <p class="name">
+                    <input name="name" type="name" class="validate[required,custom[onlyLetter],length[0,100]] feedback-input" required placeholder="Name" id="feedback-name" />
+                </p>
+
+                <p class="email">
+                    <input name="email" type="email" class="validate[required,custom[email]] feedback-input" id="feedback-email" placeholder="Email" required />
+                </p>
+
+                <p class="text">
+                    <textarea name="comment" type="comment" class="validate[required,length[6,300]] feedback-input" id="feedback-comment" required placeholder="Please enter the Feedback"></textarea>
+                </p>
+
+                <div class="feedback-submit">
+                    <input type="submit" value="SEND" id="feedback-button-blue" />
+                    <div class="feedback-ease"></div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <button id="popup" class="feedback-button" onclick="toggle_visibility()">Feedback</button>
+    <script src="feedback.js"></script>
+</body>
+
+</html>
